@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.box_movies {
+  @apply flex gap-6 overflow-auto pb-6 scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 scrollbar-track-rounded scrollbar-thumb-rounded cursor-pointer;
+}
