@@ -13,7 +13,7 @@ import Search from "./pages/Search";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="bg-slate-900 h-full flex flex-col justify-between">
+      <div className="bg-slate-900 h-full flex flex-col justify-around">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

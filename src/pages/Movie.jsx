@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Loading from "../components/Loading";
+//Libs
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 //Icons
 import { MdOutlineAccessTime } from "react-icons/md";
@@ -29,11 +31,12 @@ const Movie = () => {
 
   return (
     <>
-      {movie ? (
+      {movie && (
         <div className="mx-auto lg:w-4/6">
           <header className="relative">
-            <img
+            <LazyLoadImage
               src={`${imageURL}${movie.backdrop_path} `}
+              effect="blur"
               className=" w-full lg:rounded-xl"
             />
             <div className="h-full w-full absolute bg-gradient-to-t from-slate-900 top-0  flex flex-col items-center">
@@ -128,8 +131,6 @@ const Movie = () => {
             </section>
           </main>
         </div>
-      ) : (
-        <Loading />
       )}
     </>
   );

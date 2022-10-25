@@ -1,5 +1,9 @@
 import React from "react";
 
+//Libs
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 //Icons
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -13,8 +17,9 @@ const MovieCard = ({ movie, showLink = true }) => {
     <div className="w-40 py-2 2xl:w-48 hover:scale-105 duration-200 ease-in-out ">
       {showLink && (
         <Link to={`/movie/${movie.id}`}>
-          <img
+          <LazyLoadImage
             src={`${imageURL}${movie.poster_path}`}
+            effect="blur"
             className="rounded-xl h-60 w-40 2xl:h-72 2xl:w-48"
           />
 
