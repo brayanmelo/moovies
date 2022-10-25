@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import "animate.css";
+import Loading from "../components/Loading";
 
 //Icons
 import { MdOutlineAccessTime } from "react-icons/md";
@@ -29,8 +29,8 @@ const Movie = () => {
 
   return (
     <>
-      {movie && (
-        <div className="mx-auto lg:w-4/6 animate__animated animate__fadeInUp animate__fast ">
+      {movie ? (
+        <div className="mx-auto lg:w-4/6">
           <header className="relative">
             <img
               src={`${imageURL}${movie.backdrop_path} `}
@@ -116,7 +116,7 @@ const Movie = () => {
 
                 <div className="flex items-center gap-6">
                   <p className="text-sm font-semibold">Produtora</p>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-2 ">
                     {movie.production_companies.map((prod) => (
                       <div className="bg-slate-800 px-2 py-1 rounded-xl text-center text-sm truncate">
                         {prod.name}
@@ -128,6 +128,8 @@ const Movie = () => {
             </section>
           </main>
         </div>
+      ) : (
+        <Loading />
       )}
     </>
   );
